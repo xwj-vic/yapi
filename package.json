@@ -14,7 +14,8 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "build-client": "NODE_ENV=production ykit pack -m",
     "npm-publish": "node ./npm-publish.js",
-    "docs": "ydoc build"
+    "docs": "ydoc build",
+    "install": "npm install --registry https://mirrors.huaweicloud.com/repository/npm/"
   },
   "scripts-info": {
     "start": "运行生产环境服务器",
@@ -82,6 +83,7 @@
     "sha1": "1.1.1",
     "swagger-client": "^3.5.1",
     "tslib": "1.8.0",
+    "types-ramda": "^0.29.3",
     "underscore": "1.8.3",
     "url": "0.11.0",
     "vm2": "^3.8.4",
