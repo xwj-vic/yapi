@@ -1,7 +1,4 @@
 ## YApi  可视化接口管理平台
-npm install types-ramda@^0.29.3
-npm install --registry https://mirrors.huaweicloud.com/repository/npm/
-https://www.npmjs.com/search?q=yapi-plugin-
 
 体验地址：
 
