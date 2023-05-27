@@ -1,15 +1,13 @@
 {
    "port": "3000",
-   "adminAccount": "admin@admin.com",
+   "adminAccount": "wupang@admin.com",
+   "adminPassword":"wupang",
    "timeout": 120000,
    "closeRegister":true,
    "db": {
       "servername": "127.0.0.1",
       "DATABASE": "yapi",
-      "port": 27017,
-      "user": "",
-      "pass": "",
-      "authSource": ""
+      "port": 27017
    },
    "mail": {
       "enable": false,
@@ -30,9 +28,6 @@
       },
       {
          "name": "interface-oauth2-token"
-      },
-      {
-         "name": "add-user"
       },
       {
          "name": "add-user"
