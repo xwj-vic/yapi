@@ -185,7 +185,8 @@ module.exports = {
 
         baseConfig.module.preLoaders.push({
           test: /\.json$/,
-          loader: 'json-loader'
+          loader: 'json-loader',
+          type: 'javascript/auto',
         });
 
         if (this.env == 'prd') {
