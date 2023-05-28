@@ -15,7 +15,6 @@ const {
 } = require('../../common/postmanLib');
 const { handleParamsValue, ArrayToObject } = require('../../common/utils.js');
 const renderToHtml = require('../utils/reportHtml');
-const axios = require('axios');
 const HanldeImportData = require('../../common/HandleImportData');
 const _ = require('underscore');
 const createContex = require('../../common/createContext')
@@ -26,7 +25,6 @@ const createContex = require('../../common/createContext')
  * }
  */
 const importDataModule = {};
-yapi.emitHook('import_data', importDataModule);
 
 class openController extends baseController {
   constructor(ctx) {
@@ -70,6 +68,7 @@ class openController extends baseController {
         }
       }
     };
+    yapi.emitHook('import_data', importDataModule);
   }
 
   async importData(ctx) {

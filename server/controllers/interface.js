@@ -780,46 +780,48 @@ class interfaceController extends baseController {
     });
 
     this.projectModel.up(interfaceData.project_id, { up_time: new Date().getTime() }).then();
-    if (params.switch_notice === true) {
+    // if (params.switch_notice === true) {
       let diffView = showDiffMsg(jsondiffpatch, formattersHtml, logData);
-      let annotatedCss = fs.readFileSync(
-        path.resolve(
-          yapi.WEBROOT,
-          'node_modules/jsondiffpatch/dist/formatters-styles/annotated.css'
-        ),
-        'utf8'
-      );
-      let htmlCss = fs.readFileSync(
-        path.resolve(yapi.WEBROOT, 'node_modules/jsondiffpatch/dist/formatters-styles/html.css'),
-        'utf8'
-      );
+      if (diffView.length > 0) {
+          let annotatedCss = fs.readFileSync(
+              path.resolve(
+                  yapi.WEBROOT,
+                  'node_modules/jsondiffpatch/dist/formatters-styles/annotated.css'
+              ),
+              'utf8'
+          );
+          let htmlCss = fs.readFileSync(
+              path.resolve(yapi.WEBROOT, 'node_modules/jsondiffpatch/dist/formatters-styles/html.css'),
+              'utf8'
+          );
 
-      let project = await this.projectModel.getBaseInfo(interfaceData.project_id);
+          let project = await this.projectModel.getBaseInfo(interfaceData.project_id);
 
-      let interfaceUrl = `${ctx.request.origin}/project/${
-        interfaceData.project_id
-      }/interface/api/${id}`;
+          let interfaceUrl = `${ctx.request.origin}/project/${
+              interfaceData.project_id
+          }/interface/api/${id}`;
 
-      yapi.commons.sendNotice(interfaceData.project_id, {
-        title: `${username} 更新了接口`,
-        content: `<html>
-        <head>
-        <style>
-        ${annotatedCss}
-        ${htmlCss}
-        </style>
-        </head>
-        <body>
-        <div><h3>${username}更新了接口(${data.title})</h3>
-        <p>项目名：${project.name} </p>
-        <p>修改用户: ${username}</p>
-        <p>接口名: <a href="${interfaceUrl}">${data.title}</a></p>
-        <p>接口路径: [${data.method}]${data.path}</p>
-        <p>详细改动日志: ${this.diffHTML(diffView)}</p></div>
-        </body>
-        </html>`
-      });
-    }
+          yapi.commons.sendNotice(interfaceData.project_id, {
+            title: `${username} 更新了接口`,
+            content: `<html>
+          <head>
+          <style>
+          ${annotatedCss}
+          ${htmlCss}
+          </style>
+          </head>
+          <body>
+          <div><h3>${username}更新了接口(${data.title})</h3>
+          <p>项目名：${project.name} </p>
+          <p>修改用户: ${username}</p>
+          <p>接口名: <a href="${interfaceUrl}">${data.title}</a></p>
+          <p>接口路径: [${data.method}]${data.path}</p>
+          <p>详细改动日志: ${this.diffHTML(diffView)}</p></div>
+          </body>
+          </html>`
+          });
+      }
+    // }
 
     yapi.emitHook('interface_update', id).then();
     await this.autoAddTag(params);
@@ -887,6 +889,21 @@ class interfaceController extends baseController {
       });
       this.projectModel.up(data.project_id, { up_time: new Date().getTime() }).then();
       ctx.body = yapi.commons.resReturn(result);
+
+      yapi.commons.sendNotice(data.project_id, {
+        title: `yapi接口删除提醒`,
+        content: `
+        <html>
+        <head>
+        <title>删除接口</title>
+        <meta charset="utf-8" />
+        <body>
+        <div> 操作人： ${username} </div>
+        <div> 接口名： ${data.title}</div>
+        </body>
+        </html>`
+      });
+
     } catch (err) {
       ctx.body = yapi.commons.resReturn(null, 402, err.message);
     }
