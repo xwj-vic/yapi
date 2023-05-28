@@ -8,7 +8,6 @@ const interfaceColModel = require('../models/interfaceCol.js');
 const interfaceCaseModel = require('../models/interfaceCase.js');
 const interfaceModel = require('../models/interface.js');
 const userModel = require('../models/user.js');
-const followModel = require('../models/follow.js');
 const json5 = require('json5');
 const _ = require('underscore');
 const Ajv = require('ajv');
@@ -282,6 +281,11 @@ exports.verifyPath = path => {
  * a = {a: 2}
  */
 exports.sandbox = (sandbox, script) => {
+  let filter = '^(process|exec|require)$';
+  let reg = new RegExp(filter, "g");
+  if (reg.test(script)) {
+    throw new Error("执行失败，脚本中含敏感操作....");
+  }
   try {
     const vm = require('vm');
     sandbox = sandbox || {};	
