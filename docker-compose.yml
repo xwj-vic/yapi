@@ -2,7 +2,7 @@ version: '3'
 
 services:
   yapi-web:
-    image: xwj/yapi:v3
+    image: xuweijie1015/yapi:latest
     container_name: yapi-web
     ports:
       - 40001:3000
