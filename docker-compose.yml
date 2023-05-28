@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  yapi-web:
+    image: xwj/yapi:v3
+    container_name: yapi-web
+    ports:
+      - 40001:3000
+    environment:
+      - YAPI_ADMIN_ACCOUNT=wupang@admin.com
+      - YAPI_ADMIN_PASSWORD=wupang
+      - YAPI_CLOSE_REGISTER=true
+      - YAPI_DB_SERVERNAME=127.0.0.1
+      - YAPI_DB_PORT=27017
+      - YAPI_DB_DATABASE=yapi
+      - YAPI_MAIL_ENABLE=true
+      - YAPI_MAIL_HOST=smtp.qq.com
+      - YAPI_MAIL_PORT=465
+      - YAPI_MAIL_FROM=
+      - YAPI_MAIL_AUTH_USER=
+      - YAPI_MAIL_AUTH_PASS=
+      - YAPI_PLUGINS=[{"name":"notifier","options":{"host":"http://localhost:3000"}},{"name":"pl-auto-test","options":{"host":"http://localhost:3000"}},{"name":"interface-oauth2-token"},{"name":"api-watch"}]
+
+    volumes:
+      - /Users/vicxu/Desktop/data/db:/data/db
+    restart: unless-stopped
+
