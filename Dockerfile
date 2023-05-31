@@ -19,5 +19,5 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositori
 
 EXPOSE $PORT
 
-CMD mongod --fork --logpath=mongodb.log && node /yapi/vendors/start.js
+CMD mongod --fork --dbpath=/data/db/  --logpath=mongodb.log && node /yapi/vendors/start.js
 

@@ -581,7 +581,7 @@ ${JSON.stringify(schema, null, 2)}`)
       // script 是断言
       if (globalScript) {
         logs.push('执行脚本：' + globalScript)
-        result = await sandboxFn(context, globalScript);
+        result = await sandboxFn(context, globalScript, true);
       }
     }
 
@@ -590,7 +590,7 @@ ${JSON.stringify(schema, null, 2)}`)
     // script 是断言
     if (script) {
       logs.push('执行脚本:' + script)
-      result = await sandboxFn(context, script);
+      result = await sandboxFn(context, script, true);
     }
     result.logs = logs;
     return yapi.commons.resReturn(result);
@@ -636,7 +636,7 @@ exports.handleMockScript = async function (script, context) {
       var parts = Cookie.split('=');
       sandbox.cookie[parts[0].trim()] = (parts[1] || '').trim();
     });
-  sandbox = await sandboxFn(sandbox, script);
+  sandbox = await sandboxFn(sandbox, script, false);
   sandbox.delay = isNaN(sandbox.delay) ? 0 : +sandbox.delay;
 
   context.mockJson = sandbox.mockJson;
