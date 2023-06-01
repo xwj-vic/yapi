@@ -468,13 +468,15 @@ class InterfaceMenu extends Component {
               onMouseEnter={() => this.enterItem(item._id)}
               onMouseLeave={this.leaveItem}
             >
-              <Link
-                className="interface-item"
-                onClick={e => e.stopPropagation()}
-                to={'/project/' + matchParams.id + '/interface/api/' + item._id}
-              >
-                {item.title}
-              </Link>
+              <Tooltip title= {item.title}>
+                <Link
+                  className="interface-item"
+                  onClick={e => e.stopPropagation()}
+                  to={'/project/' + matchParams.id + '/interface/api/' + item._id}
+                >
+                  {item.title}
+                </Link>
+              </Tooltip>
               <div className="btns">
                 <Tooltip title="删除接口">
                   <Icon

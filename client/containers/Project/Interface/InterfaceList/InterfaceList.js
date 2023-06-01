@@ -209,9 +209,11 @@ class InterfaceList extends Component {
         width: 30,
         render: (text, item) => {
           return (
-            <Link to={'/project/' + item.project_id + '/interface/api/' + item._id}>
-              <span className="path">{text}</span>
-            </Link>
+            <Tooltip title= {text}>
+              <Link to={'/project/' + item.project_id + '/interface/api/' + item._id}>
+                <span className="path">{text}</span>
+              </Link>
+            </Tooltip>
           );
         }
       },

@@ -97,7 +97,7 @@ class Interface extends Component {
 
     return (
       <Layout style={{ minHeight: 'calc(100vh - 156px)', marginLeft: '24px', marginTop: '24px' }}>
-        <Sider style={{ height: '100%' }} width={300}>
+        <Sider style={{ height: '100%' }} width={450}>
           <div className="left-menu">
             <Tabs type="card" className="tabs-large" activeKey={activeKey} onChange={this.onChange}>
               <Tabs.TabPane tab="接口列表" key="api" />
