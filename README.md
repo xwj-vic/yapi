@@ -2,6 +2,11 @@
 
 # 源码来源yapi 官方github仓库，并基于最新版修复众多bug，基本实现拿来即用
 
+所有问题看这里就可以解决了，折腾了好久总结出来的：https://blog.opendeveloper.cn/yapi
+
+修复bug汇总：https://blog.opendeveloper.cn/yapi/bug
+
+
 
 体验地址：
 
