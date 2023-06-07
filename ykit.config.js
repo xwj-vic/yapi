@@ -182,6 +182,12 @@ module.exports = {
           exclude: /tui-editor|node_modules|google-diff.js/,
           loader: 'eslint-loader'
         });
+        // @doramart 只是添加了这里的一个配置
+        baseConfig.module.preLoaders.push({
+          test: /\.(js|jsx)$/,
+          include: [path.resolve(__dirname, './node_modules/swagger-client')],
+          loader: 'babel-loader'
+        });
 
         baseConfig.module.preLoaders.push({
           test: /\.json$/,
