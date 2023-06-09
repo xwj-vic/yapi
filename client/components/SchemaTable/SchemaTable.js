@@ -29,13 +29,13 @@ const columns = [
     title: '名称',
     dataIndex: 'name',
     key: 'name',
-    width: 560
+    width: 550
   },
   {
     title: '类型',
     dataIndex: 'type',
     key: 'type',
-    width: 50,
+    width: 70,
     render: (text, item) => {
       // console.log('text',item.sub);
       return text === 'array' ? (
