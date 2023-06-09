@@ -69,18 +69,22 @@ Footer.defaultProps = {
       iconType: 'github',
       linkList: [
         {
-          itemTitle: 'YApi 源码仓库',
-          itemLink: 'https://github.com/YMFE/yapi'
+          itemTitle: 'YApi 官方源码仓库',
+          itemLink: 'https://github.com/YMFE/yapi.git'
+        },
+        {
+          itemTitle: 'YApi xwj-vic源码仓库',
+          itemLink: 'https://github.com/xwj-vic/yapi.git'
         }
       ]
     },
     {
-      title: '团队',
+      title: '社区自由维护者',
       iconType: 'team',
       linkList: [
         {
-          itemTitle: 'YMFE',
-          itemLink: 'https://ymfe.org'
+          itemTitle: '编译指南',
+          itemLink: 'https://blog.opendeveloper.cn/yapi'
         }
       ]
     },
@@ -89,12 +93,20 @@ Footer.defaultProps = {
       iconType: 'aliwangwang-o',
       linkList: [
         {
-          itemTitle: 'Github Issues',
+          itemTitle: '官方Github Issues',
           itemLink: 'https://github.com/YMFE/yapi/issues'
         },
         {
-          itemTitle: 'Github Pull Requests',
+          itemTitle: '官方Github Pull Requests',
           itemLink: 'https://github.com/YMFE/yapi/pulls'
+        },
+        {
+          itemTitle: 'xwj-vic Github Issues',
+          itemLink: 'https://github.com/xwj-vic/yapi/issues'
+        },
+        {
+          itemTitle: 'xwj-vic Github Pull Requests',
+          itemLink: 'https://github.com/xwj-vic/yapi/pulls'
         }
       ]
     },

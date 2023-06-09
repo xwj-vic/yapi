@@ -18,7 +18,7 @@ import './Services.scss';
 )
 export default class Services extends Component {
   static propTypes = {
-    projectId: PropTypes.string,
+    projectId: PropTypes.number,
     token: PropTypes.string,
     getToken: PropTypes.func
   }
