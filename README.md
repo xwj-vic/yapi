@@ -6,6 +6,18 @@
 
 修复bug汇总：https://blog.opendeveloper.cn/yapi/bug
 
+docker:https://blog.opendeveloper.cn/yapi/docker
+
+当前集成插件：(在config.json中添加进去即可使用)
+- yapi-plugin-add-user
+- yapi-plugin-api-watch
+- yapi-plugin-export-schema
+- yapi-plugin-import-swagger-customize
+- yapi-plugin-interface-oauth2-token
+- yapi-plugin-notifier
+- yapi-plugin-pl-auto-test
+- yapi-plugin-qsso
+- yapi-plugin-webhook
 
 
 体验地址：
