@@ -88,10 +88,13 @@
     "vm2": "^3.5.2",
     "yapi-plugin-add-user": "0.0.1",
     "yapi-plugin-api-watch": "^1.0.2",
+    "yapi-plugin-export-schema": "^1.0.1",
+    "yapi-plugin-import-swagger-customize": "^2.0.4",
     "yapi-plugin-interface-oauth2-token": "^1.3.1",
     "yapi-plugin-notifier": "^1.0.0",
     "yapi-plugin-pl-auto-test": "^1.4.44",
-    "yapi-plugin-qsso": "^1.1.0"
+    "yapi-plugin-qsso": "^1.1.0",
+    "yapi-plugin-webhook": "^1.1.6"
   },
   "devDependencies": {
     "antd": "3.2.2",
